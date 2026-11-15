@@ -1,0 +1,28 @@
+---
+# Azure DevOps bootstrap; see README.md before use. Do not store PATs here.
+iac_type: terraform
+bootstrap_module_name: alz_azuredevops
+starter_module_name: platform_landing_zone
+bootstrap_location: uksouth
+bootstrap_subscription_id: 362fd75d-bba6-4016-9df8-e2f783081d58
+root_parent_management_group_id: 846732b8-d571-413b-81e7-4952884e0bb9
+subscription_ids:
+  management: 362fd75d-bba6-4016-9df8-e2f783081d58
+  identity: d9d326a1-9d3d-4a80-8ac7-06a514e605f8
+  connectivity: REPLACE_CONNECTIVITY_SUBSCRIPTION_ID
+  security: REPLACE_SECURITY_SUBSCRIPTION_ID
+service_name: azlab
+environment_name: shared
+postfix_number: 1
+use_self_hosted_agents: true
+use_private_networking: true
+storage_account_replication_type: LRS
+virtual_network_address_space: 10.64.4.0/24
+virtual_network_subnet_address_prefix_container_instances: 10.64.4.0/26
+virtual_network_subnet_address_prefix_private_endpoints: 10.64.4.64/26
+azure_devops_organization_name: REPLACE_AZURE_DEVOPS_ORGANIZATION
+azure_devops_project_name: REPLACE_AZURE_DEVOPS_PROJECT
+# Environment deployment approvals are separate from PR branch policies.
+apply_approvers: []
+# Supply TF_VAR_azure_devops_personal_access_token and
+# TF_VAR_azure_devops_agents_personal_access_token securely at bootstrap time.

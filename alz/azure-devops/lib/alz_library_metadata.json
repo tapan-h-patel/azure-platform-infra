@@ -1,0 +1,8 @@
+{
+  "name": "azlab-local",
+  "display_name": "Azure platform lab architecture",
+  "description": "Custom hierarchy and selected observe-first policy baseline.",
+  "dependencies": [
+    { "path": "platform/alz", "ref": "2026.11.0" }
+  ]
+}

@@ -1,0 +1,68 @@
+# DESIGN EXAMPLE ONLY: current Terraform roots do not declare this request object.
+# This is not a deployable configuration or a request to purchase resources.
+request = {
+  schema_version          = 1
+  baseline_version        = "1.0-design"
+  request_key             = "example-app1-dev-001"
+  profile                 = "connected"
+  customer                = "example"
+  workload                = "app1"
+  environment             = "dev"
+  location                = "uksouth"
+  authentication_tenant   = "00000000-0000-0000-0000-000000000000"
+  subscription_tenant     = "00000000-0000-0000-0000-000000000000"
+  alias                   = "sub-example-app1-dev-001"
+  subscription_name       = "sub-example-app1-dev-001"
+  billing_scope_id        = "<authorized-EA-MCA-or-MPA-billing-scope>"
+  management_group_id     = "/providers/Microsoft.Management/managementGroups/mg-example-dev"
+  billing_workload        = "Production" # Billing offer classification, not environment.
+  required_provider_names = ["Microsoft.Network"]
+
+  tags = {
+    customer            = "example"
+    workload            = "app1"
+    environment         = "dev"
+    owner               = "app1-team"
+    cost_centre         = "example-cost-centre"
+    data_classification = "internal"
+    managed_by          = "terraform"
+    repository          = "azure-platform-infra"
+  }
+
+  access = {
+    scope_name             = "example-app1-dev-001"
+    group_owner_object_ids = ["00000000-0000-0000-0000-000000000000"]
+    roles                  = { reader = "Reader", contributor = "Contributor", owner = "Owner" }
+    membership_owner       = "customer-identity-process"
+    deployment_access      = "approved-app1-dev-federation-profile"
+  }
+
+  logging = {
+    profile                 = "central-logging-uksouth-v1"
+    activity_log_categories = ["Administrative", "Security", "ServiceHealth", "Alert", "Recommendation", "Policy", "Autoscale", "ResourceHealth"]
+    resource_diagnostics    = "central-policy-owned"
+  }
+
+  governance = {
+    profile                     = "approved-dev-guardrails-v1"
+    subscription_assignment_set = "approved-defaults"
+    exemption_request_refs      = []
+    paid_security_profile       = "not-enabled"
+  }
+
+  budget = {
+    amount                 = 100 # Illustrative amount in the subscription's billing currency.
+    period                 = "Monthly"
+    notification_threshold = [50, 80, 100]
+    recipients             = ["platform@example.invalid"]
+  }
+
+  network = {
+    ipam_pool_id              = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg-example-ipam/providers/Microsoft.Network/networkManagers/nm-example-uksouth/ipamPools/pool-example-dev"
+    requested_address_count   = 4096
+    subnet_layout_profile     = "private-application-v1"
+    connectivity_profile      = "uksouth-hub-firewall-v1"
+    dns_profile               = "central-private-dns-v1"
+    allow_direct_spoke_access = false
+  }
+}

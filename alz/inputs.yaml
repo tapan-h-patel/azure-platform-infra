@@ -1,0 +1,49 @@
+---
+# ALZ GitHub bootstrap configuration. Review alz/README.md before deployment.
+# Secrets are supplied as TF_VAR_github_personal_access_token and
+# TF_VAR_github_runners_personal_access_token in the bootstrap process environment.
+iac_type: terraform
+bootstrap_module_name: alz_github
+starter_module_name: platform_landing_zone
+
+bootstrap_location: uksouth
+bootstrap_subscription_id: 362fd75d-bba6-4016-9df8-e2f783081d58
+root_parent_management_group_id: 846732b8-d571-413b-81e7-4952884e0bb9
+
+# These are the four keys supported by the official bootstrap.
+# Observability is placed separately in platform-landing-zone.tfvars.
+subscription_ids:
+  management: 362fd75d-bba6-4016-9df8-e2f783081d58
+  identity: d9d326a1-9d3d-4a80-8ac7-06a514e605f8
+  connectivity: REPLACE_CONNECTIVITY_SUBSCRIPTION_ID
+  security: REPLACE_SECURITY_SUBSCRIPTION_ID
+
+service_name: azlab
+environment_name: shared
+postfix_number: 1
+github_organization_name: tapan-patel-org
+use_separate_repository_for_templates: true
+create_branch_policies: true
+
+# PR approval is required separately by branch protection. No additional
+# post-merge environment approval is requested; main apply remains automatic.
+apply_approvers: []
+apply_approval_team_creation_enabled: false
+
+use_private_networking: true
+use_self_hosted_runners: true
+use_runner_group: false # Free organization: use the default group.
+allow_storage_access_from_my_ip: false
+storage_account_replication_type: LRS
+
+# Proposed bootstrap allocation; disjoint from the hub 10.64.0.0/22.
+virtual_network_address_space: 10.64.4.0/24
+virtual_network_subnet_address_prefix_container_instances: 10.64.4.0/26
+virtual_network_subnet_address_prefix_private_endpoints: 10.64.4.64/26
+
+# Existing state storage to RETAIN:
+# sttfstateshareduksplt001 / rg-tfstate-shared-uks-001 / tfstate.
+# The stock bootstrap has no existing-account input. Storage reuse requires
+# a reviewed bootstrap adaptation before running this file. Do not invent an
+# input, create a replacement account, or reuse an existing live state key.
+# Also verify fresh-per-job runner lifecycle and public-PR trust before apply.

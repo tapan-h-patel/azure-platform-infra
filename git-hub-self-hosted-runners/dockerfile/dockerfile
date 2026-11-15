@@ -1,0 +1,81 @@
+FROM ghcr.io/actions/actions-runner:latest
+
+USER root
+SHELL ["/bin/bash", "-e", "-o", "pipefail", "-c"]
+
+ARG HELM_VERSION=v3.19.0
+ARG KUBECTL_VERSION=""
+
+# Install network troubleshooting tools and configure the package repositories.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        ca-certificates curl wget dnsutils gnupg iproute2 iputils-ping \
+        iputils-tracepath jq netcat-openbsd openssl traceroute unzip \
+    && . /etc/os-release \
+    && curl -fsSL "https://packages.microsoft.com/config/ubuntu/${VERSION_ID}/packages-microsoft-prod.deb" \
+        -o /tmp/packages-microsoft-prod.deb \
+    && dpkg -i /tmp/packages-microsoft-prod.deb \
+    && curl -fsSL https://apt.releases.hashicorp.com/gpg \
+        | gpg --batch --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg \
+    && printf 'deb [arch=amd64 signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com %s main\n' \
+        "$VERSION_CODENAME" > /etc/apt/sources.list.d/hashicorp.list \
+    && curl -fsSL https://aka.ms/InstallAzureCLIDeb | bash \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends powershell terraform \
+    && rm -f /tmp/packages-microsoft-prod.deb \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install the Linux x64 Kubernetes and GitOps CLIs.
+RUN tmp_dir="$(mktemp -d)" \
+    && cd "$tmp_dir" \
+    && kubectl_version="$KUBECTL_VERSION" \
+    && if [[ -z "$kubectl_version" ]]; then \
+        kubectl_version="$(curl -fsSL https://dl.k8s.io/release/stable.txt)"; \
+    fi \
+    && kubectl_url="https://dl.k8s.io/release/${kubectl_version}/bin/linux/amd64/kubectl" \
+    && curl -fsSLo kubectl "$kubectl_url" \
+    && curl -fsSLo kubectl.sha256 "${kubectl_url}.sha256" \
+    && printf '%s  kubectl\n' "$(cat kubectl.sha256)" | sha256sum --check \
+    && install -m 0755 kubectl /usr/local/bin/kubectl \
+    && curl -fsSLo helm.tar.gz "https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz" \
+    && tar -xzf helm.tar.gz linux-amd64/helm \
+    && install -m 0755 linux-amd64/helm /usr/local/bin/helm \
+    && curl -fsSLo argocd https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64 \
+    && install -m 0755 argocd /usr/local/bin/argocd \
+    && flux_tag="$(curl -fsSL https://api.github.com/repos/fluxcd/flux2/releases/latest \
+        | jq -er '.tag_name')" \
+    && curl -fsSLo flux.tar.gz \
+        "https://github.com/fluxcd/flux2/releases/download/${flux_tag}/flux_${flux_tag#v}_linux_amd64.tar.gz" \
+    && tar -xzf flux.tar.gz flux \
+    && install -m 0755 flux /usr/local/bin/flux \
+    && cd / \
+    && rm -rf "$tmp_dir"
+
+# Install GitHub CLI from its official APT repository.
+RUN install -m 0755 -d /etc/apt/keyrings \
+    && curl -fsSLo /etc/apt/keyrings/githubcli.gpg \
+        https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+    && chmod 0644 /etc/apt/keyrings/githubcli.gpg \
+    && printf '%s\n' \
+        'deb [arch=amd64 signed-by=/etc/apt/keyrings/githubcli.gpg] https://cli.github.com/packages stable main' \
+        > /etc/apt/sources.list.d/github-cli.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends gh \
+    && rm -rf /var/lib/apt/lists/*
+
+# Verify the CLIs as the non-root user that will run workflow jobs.
+USER runner
+WORKDIR /home/runner
+
+RUN az version \
+    && terraform version \
+    && pwsh --version \
+    && jq --version \
+    && helm version --short \
+    && kubectl version --client \
+    && argocd version --client \
+    && flux version --client \
+    && gh --version
+
+COPY --chmod=0755 start-runner.sh /usr/local/bin/start-runner
+ENTRYPOINT ["/usr/local/bin/start-runner"]

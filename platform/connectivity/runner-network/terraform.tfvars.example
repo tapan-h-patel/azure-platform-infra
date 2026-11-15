@@ -1,0 +1,11 @@
+tenant_id = "00000000-0000-0000-0000-000000000000"
+subscription_id = "00000000-0000-0000-0000-000000000000"
+location = "uksouth"
+name = "example-lab-uks-001"
+resource_group_name = "rg-runner-network-example-lab-uks-001"
+# Example only: confirm no overlap with existing networks, VPNs or ACA reserved ranges.
+address_space = "10.80.0.0/16"
+container_apps_subnet_cidr = "10.80.0.0/24"
+private_endpoints_subnet_cidr = "10.80.1.0/24"
+state_storage_account_id = "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-state/providers/Microsoft.Storage/storageAccounts/examplestate"
+tags = { workload = "runners", environment = "lab", owner = "platform-team", managed_by = "terraform", repository = "azure-platform-infra" }

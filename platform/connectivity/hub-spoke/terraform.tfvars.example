@@ -1,0 +1,84 @@
+tenant_id = "00000000-0000-0000-0000-000000000000"
+subscription_id = "00000000-0000-0000-0000-000000000000"
+location = "uksouth"
+transit_routes = {
+  default = "0.0.0.0/0"
+  private-10 = "10.0.0.0/8"
+  private-172 = "172.16.0.0/12"
+  private-192 = "192.168.0.0/16"
+}
+hub = {
+  resource_group_name = "rg-example-hub-uks-001"
+  virtual_network_name = "vnet-example-hub-uks-001"
+  address_space = ["10.100.0.0/16"]
+  dns_servers = []
+  route_table_name = "rt-example-hub-uks-001"
+  tags = { workload = "connectivity", environment = "lab", managed_by = "terraform", repository = "azure-platform-infra" }
+  subnets = {
+    firewall = {
+      name = "AzureFirewallSubnet"
+      address_prefixes = ["10.100.0.0/26"]
+      default_outbound_access_enabled = false
+      private_endpoint_network_policies = "Enabled"
+      route_via_hub = false
+    }
+    services = {
+      name = "snet-example-hub-services-uks-001"
+      address_prefixes = ["10.100.1.0/24"]
+      default_outbound_access_enabled = false
+      private_endpoint_network_policies = "Enabled"
+      route_via_hub = true
+    }
+  }
+}
+spokes = {
+  management = {
+    resource_group_name = "rg-example-management-uks-001"
+    virtual_network_name = "vnet-example-management-uks-001"
+    address_space = ["10.110.0.0/16"]
+    dns_servers = []
+    route_table_name = "rt-example-management-uks-001"
+    hub_to_spoke_peering_name = "peer-hub-to-management"
+    spoke_to_hub_peering_name = "peer-management-to-hub"
+    tags = { workload = "management", environment = "lab", managed_by = "terraform", repository = "azure-platform-infra" }
+    subnets = {
+      workloads = {
+        name = "snet-example-management-workloads-uks-001"
+        address_prefixes = ["10.110.1.0/24"]
+        default_outbound_access_enabled = false
+        private_endpoint_network_policies = "Enabled"
+        route_via_hub = true
+      }
+    }
+  }
+  identity = {
+    resource_group_name = "rg-example-identity-uks-001"
+    virtual_network_name = "vnet-example-identity-uks-001"
+    address_space = ["10.120.0.0/16"]
+    dns_servers = []
+    route_table_name = "rt-example-identity-uks-001"
+    hub_to_spoke_peering_name = "peer-hub-to-identity"
+    spoke_to_hub_peering_name = "peer-identity-to-hub"
+    tags = { workload = "identity", environment = "lab", managed_by = "terraform", repository = "azure-platform-infra" }
+    subnets = {
+      workloads = {
+        name = "snet-example-identity-workloads-uks-001"
+        address_prefixes = ["10.120.1.0/24"]
+        default_outbound_access_enabled = false
+        private_endpoint_network_policies = "Enabled"
+        route_via_hub = true
+      }
+    }
+  }
+}
+firewall = {
+  name = "afw-example-hub-uks-001"
+  policy_name = "afwp-example-hub-uks-001"
+  public_ip_name = "pip-example-firewall-uks-001"
+  subnet_key = "firewall"
+  sku_tier = "Standard"
+  zones = []
+  threat_intelligence_mode = "Deny"
+  # Empty is intentional: policy denies traffic until explicit rules are supplied.
+  network_rule_collections = {}
+}
