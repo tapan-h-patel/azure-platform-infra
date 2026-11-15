@@ -1,0 +1,58 @@
+---
+name: azlab_platform
+management_groups:
+  - id: mg-root
+    display_name: Root
+    parent_id: null
+    exists: false
+    archetypes: [lab_root]
+  - id: mg-platform
+    display_name: Platform
+    parent_id: mg-root
+    exists: false
+    archetypes: [lab_platform]
+  - id: mg-connectivity
+    display_name: Connectivity
+    parent_id: mg-platform
+    exists: false
+    archetypes: [lab_connectivity]
+  - id: mg-identity
+    display_name: Identity
+    parent_id: mg-platform
+    exists: false
+    archetypes: [lab_identity]
+  - id: mg-management
+    display_name: Management
+    parent_id: mg-platform
+    exists: false
+    archetypes: [management]
+  - id: mg-observability
+    display_name: Observability
+    parent_id: mg-platform
+    exists: false
+    archetypes: []
+  - id: mg-security
+    display_name: Security
+    parent_id: mg-platform
+    exists: false
+    archetypes: [security]
+  - id: mg-workloads
+    display_name: Workloads
+    parent_id: mg-root
+    exists: false
+    archetypes: [lab_workloads]
+  - id: mg-dev
+    display_name: Dev
+    parent_id: mg-workloads
+    exists: false
+    archetypes: []
+  - id: mg-uat
+    display_name: UAT
+    parent_id: mg-workloads
+    exists: false
+    archetypes: []
+  - id: mg-prod
+    display_name: Prod
+    parent_id: mg-workloads
+    exists: false
+    archetypes: []

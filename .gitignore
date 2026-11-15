@@ -42,3 +42,16 @@ terraform.rc
 # Optional: ignore plan files saved before destroying Terraform configuration
 # Uncomment the line below if you want to ignore planout files.
 # planout
+# Local backend configuration and saved plans
+backend.hcl
+*.tfplan
+*.tfplan.*
+
+# Reusable module checks use the caller's provider policy; roots keep lock files.
+modules/**/.terraform.lock.hcl
+
+# ALZ generated output can contain local state and credentials.
+alz/output/
+alz/.alz/
+alz/azure-devops/output/
+alz/azure-devops/.alz/

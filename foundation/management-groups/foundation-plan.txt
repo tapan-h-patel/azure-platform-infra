@@ -1,0 +1,1848 @@
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # module.branches["platform"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Platform"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-platform"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.branches["platform"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-platform-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.branches["platform"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-platform-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.branches["platform"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-platform-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.branches["platform"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.branches["platform"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.branches["platform"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.branches["workloads"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Workloads"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-workloads"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.branches["workloads"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-workloads-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.branches["workloads"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-workloads-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.branches["workloads"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-workloads-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.branches["workloads"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.branches["workloads"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.branches["workloads"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.intermediate_root.module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Root"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-root"
+      + parent_management_group_id = "/providers/Microsoft.Management/managementGroups/846732b8-d571-413b-81e7-4952884e0bb9"
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.intermediate_root.module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-azlab-root-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.intermediate_root.module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-azlab-root-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.intermediate_root.module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-azlab-root-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.intermediate_root.module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.intermediate_root.module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.intermediate_root.module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["connectivity"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Connectivity"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-connectivity"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.leaves["connectivity"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-connectivity-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["connectivity"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-connectivity-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["connectivity"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-connectivity-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["connectivity"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["connectivity"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["connectivity"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["dev"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Dev"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-dev"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.leaves["dev"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-dev-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["dev"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-dev-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["dev"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-dev-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["dev"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["dev"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["dev"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["identity"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Identity"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-identity"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.leaves["identity"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-identity-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["identity"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-identity-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["identity"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-identity-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["identity"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["identity"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["identity"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["management"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Management"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-management"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.leaves["management"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-management-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["management"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-management-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["management"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-management-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["management"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["management"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["management"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["observability"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Observability"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-observability"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.leaves["observability"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-observability-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["observability"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-observability-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["observability"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-observability-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["observability"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["observability"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["observability"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["prod"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Prod"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-prod"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.leaves["prod"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-prod-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["prod"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-prod-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["prod"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-prod-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["prod"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["prod"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["prod"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["security"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "Security"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-security"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.leaves["security"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-security-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["security"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-security-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["security"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-security-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["security"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["security"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["security"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["uat"].module.management_group.azurerm_management_group.management_group will be created
+  + resource "azurerm_management_group" "management_group" {
+      + display_name               = "UAT"
+      + id                         = (known after apply)
+      + name                       = "mg-azlab-uat"
+      + parent_management_group_id = (known after apply)
+      + subscription_ids           = (known after apply)
+      + tenant_scoped_id           = (known after apply)
+    }
+
+  # module.leaves["uat"].module.scope_access.azuread_group.security_group["contributor"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-uat-mg-contributor"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["uat"].module.scope_access.azuread_group.security_group["owner"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-uat-mg-owner"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["uat"].module.scope_access.azuread_group.security_group["reader"] will be created
+  + resource "azuread_group" "security_group" {
+      + auto_subscribe_new_members     = (known after apply)
+      + description                    = (known after apply)
+      + display_name                   = "grp-uat-mg-reader"
+      + external_senders_allowed       = (known after apply)
+      + hide_from_address_lists        = (known after apply)
+      + hide_from_outlook_clients      = (known after apply)
+      + id                             = (known after apply)
+      + mail                           = (known after apply)
+      + mail_enabled                   = false
+      + mail_nickname                  = (known after apply)
+      + members                        = (known after apply)
+      + object_id                      = (known after apply)
+      + onpremises_domain_name         = (known after apply)
+      + onpremises_group_type          = (known after apply)
+      + onpremises_netbios_name        = (known after apply)
+      + onpremises_sam_account_name    = (known after apply)
+      + onpremises_security_identifier = (known after apply)
+      + onpremises_sync_enabled        = (known after apply)
+      + owners                         = [
+          + "2b8e26f4-ff30-4bca-be89-787616bacf79",
+        ]
+      + preferred_language             = (known after apply)
+      + prevent_duplicate_names        = true
+      + proxy_addresses                = (known after apply)
+      + security_enabled               = true
+      + visibility                     = (known after apply)
+      + writeback_enabled              = false
+    }
+
+  # module.leaves["uat"].module.scope_access.azurerm_role_assignment.scope_role_assignment["contributor"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Contributor"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["uat"].module.scope_access.azurerm_role_assignment.scope_role_assignment["owner"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Owner"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+  # module.leaves["uat"].module.scope_access.azurerm_role_assignment.scope_role_assignment["reader"] will be created
+  + resource "azurerm_role_assignment" "scope_role_assignment" {
+      + condition_version                = (known after apply)
+      + id                               = (known after apply)
+      + name                             = (known after apply)
+      + principal_id                     = (known after apply)
+      + principal_type                   = "Group"
+      + role_definition_id               = (known after apply)
+      + role_definition_name             = "Reader"
+      + scope                            = (known after apply)
+      + skip_service_principal_aad_check = (known after apply)
+    }
+
+Plan: 77 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + access_groups        = {
+      + branches          = {
+          + platform  = {
+              + contributor = {
+                  + display_name       = "grp-platform-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-platform-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-platform-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+          + workloads = {
+              + contributor = {
+                  + display_name       = "grp-workloads-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-workloads-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-workloads-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+        }
+      + intermediate_root = {
+          + contributor = {
+              + display_name       = "grp-azlab-root-mg-contributor"
+              + object_id          = (known after apply)
+              + role_assignment_id = (known after apply)
+              + role_name          = "Contributor"
+              + scope              = (known after apply)
+            }
+          + owner       = {
+              + display_name       = "grp-azlab-root-mg-owner"
+              + object_id          = (known after apply)
+              + role_assignment_id = (known after apply)
+              + role_name          = "Owner"
+              + scope              = (known after apply)
+            }
+          + reader      = {
+              + display_name       = "grp-azlab-root-mg-reader"
+              + object_id          = (known after apply)
+              + role_assignment_id = (known after apply)
+              + role_name          = "Reader"
+              + scope              = (known after apply)
+            }
+        }
+      + leaves            = {
+          + connectivity  = {
+              + contributor = {
+                  + display_name       = "grp-connectivity-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-connectivity-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-connectivity-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+          + dev           = {
+              + contributor = {
+                  + display_name       = "grp-dev-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-dev-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-dev-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+          + identity      = {
+              + contributor = {
+                  + display_name       = "grp-identity-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-identity-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-identity-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+          + management    = {
+              + contributor = {
+                  + display_name       = "grp-management-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-management-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-management-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+          + observability = {
+              + contributor = {
+                  + display_name       = "grp-observability-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-observability-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-observability-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+          + prod          = {
+              + contributor = {
+                  + display_name       = "grp-prod-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-prod-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-prod-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+          + security      = {
+              + contributor = {
+                  + display_name       = "grp-security-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-security-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-security-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+          + uat           = {
+              + contributor = {
+                  + display_name       = "grp-uat-mg-contributor"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Contributor"
+                  + scope              = (known after apply)
+                }
+              + owner       = {
+                  + display_name       = "grp-uat-mg-owner"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Owner"
+                  + scope              = (known after apply)
+                }
+              + reader      = {
+                  + display_name       = "grp-uat-mg-reader"
+                  + object_id          = (known after apply)
+                  + role_assignment_id = (known after apply)
+                  + role_name          = "Reader"
+                  + scope              = (known after apply)
+                }
+            }
+        }
+    }
+  + management_group_ids = {
+      + branches          = {
+          + platform  = (known after apply)
+          + workloads = (known after apply)
+        }
+      + intermediate_root = (known after apply)
+      + leaves            = {
+          + connectivity  = (known after apply)
+          + dev           = (known after apply)
+          + identity      = (known after apply)
+          + management    = (known after apply)
+          + observability = (known after apply)
+          + prod          = (known after apply)
+          + security      = (known after apply)
+          + uat           = (known after apply)
+        }
+    }

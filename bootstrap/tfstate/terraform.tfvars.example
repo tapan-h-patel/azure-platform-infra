@@ -1,0 +1,19 @@
+# Copy to terraform.tfvars (ignored) and replace identifiers and example IP.
+tenant_id       = "00000000-0000-0000-0000-000000000000"
+subscription_id = "00000000-0000-0000-0000-000000000000"
+location        = "uksouth"
+
+naming = {
+  workload    = "tfstate"
+  environment = "shared"
+  region      = "uks"
+  instance    = "001"
+  suffix      = "abc123" # Choose once; preserve it. Check global availability.
+}
+
+allowed_public_ipv4_addresses = ["203.0.113.10"] # Documentation IP; replace.
+state_group_object_ids          = ["00000000-0000-0000-0000-000000000000"]
+replication_type             = "ZRS"
+tags = {
+  owner = "platform-team"
+}

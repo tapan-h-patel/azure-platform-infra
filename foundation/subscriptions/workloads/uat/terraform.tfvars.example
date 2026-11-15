@@ -1,0 +1,14 @@
+# Dedicated uat workload subscription root. Replace customer and billing inputs.
+tenant_id = "00000000-0000-0000-0000-000000000000"
+deployment_subscription_id = "00000000-0000-0000-0000-000000000000"
+subscription_tenant_id = "00000000-0000-0000-0000-000000000000"
+subscriptions = {
+  workloads = {
+    alias = "sub-example-workloads-uat-001"
+    subscription_name = "sub-example-workloads-uat-001"
+    billing_scope_id = "<required-billing-scope-id>"
+    management_group_id = "/providers/Microsoft.Management/managementGroups/mg-example-uat"
+    workload = "Production"
+    tags = { workload = "workloads", environment = "uat", managed_by = "terraform", repository = "azure-platform-infra", owner = "platform-team" }
+  }
+}

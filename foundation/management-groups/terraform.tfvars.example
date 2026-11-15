@@ -1,0 +1,27 @@
+# New-tenant example. Replace IDs and customer naming tokens; do not use live credentials.
+tenant_id = "00000000-0000-0000-0000-000000000000"
+subscription_id = "00000000-0000-0000-0000-000000000000"
+group_owner_object_ids = ["00000000-0000-0000-0000-000000000000"]
+root_management_group = {
+  name = "mg-example-root"
+  display_name = "Intermediate Root"
+  access_name = "example-root"
+}
+branch_management_groups = {
+  platform = { name = "mg-example-platform", display_name = "Platform", access_name = "platform" }
+  workloads = { name = "mg-example-workloads", display_name = "Workloads", access_name = "workloads" }
+}
+leaf_management_groups = {
+  connectivity = { name = "mg-example-connectivity", display_name = "Connectivity", access_name = "connectivity", parent_key = "platform" }
+  identity = { name = "mg-example-identity", display_name = "Identity", access_name = "identity", parent_key = "platform" }
+  management = { name = "mg-example-management", display_name = "Management", access_name = "management", parent_key = "platform" }
+  observability = { name = "mg-example-observability", display_name = "Observability", access_name = "observability", parent_key = "platform" }
+  security = { name = "mg-example-security", display_name = "Security", access_name = "security", parent_key = "platform" }
+  dev = { name = "mg-example-dev", display_name = "Dev", access_name = "dev", parent_key = "workloads" }
+  prod = { name = "mg-example-prod", display_name = "Prod", access_name = "prod", parent_key = "workloads" }
+  uat = { name = "mg-example-uat", display_name = "UAT", access_name = "uat", parent_key = "workloads" }
+}
+
+parent_management_group_id = "/providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000"
+
+roles = { reader = "Reader", contributor = "Contributor", owner = "Owner" }
